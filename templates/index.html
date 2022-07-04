@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'stylesheet/main.css' %}">
+    <link rel="stylesheet" href="{% static 'stylesheet/audio.css' %}">
     <style>
         body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
         body, html {
@@ -57,7 +58,7 @@
         }
     </style>
 </head>
-<body>
+<body id="template">
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
@@ -87,7 +88,7 @@
         <hr>
         <br>
         <br>
-        <div class="w3-container" id="subtitle"> <div class="typed-out" id="subtitle_text">an upcoming Berlin musician</div></div>
+        <div class="container" id="subtitle"> <div class="typed-out" id="subtitle_text">{{ subtitles.0.text }}</div></div>
     </div>
 </div>
 
@@ -107,57 +108,65 @@
 </div>
 
 <!-- Container (Portfolio Section) -->
+<br><br>
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
-    <h3 class="w3-center">CAIN PROBLEM</h3>
-    <p class="w3-center"><em>My newest album lorem work ipsum tipsum.<br> Click on the images to make them bigger</em></p><br>
+    {% for album in albums %}
+    <h3 class="w3-center">{{ album.0.album_name }}</h3>
 
-    <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-    <div class="w3-row-padding w3-center">
-        <div class="w3-col m3">
-            <img src="https://i1.sndcdn.com/avatars-rv0XiHjzKrmt5yud-ZBA4pg-t500x500.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains">
-        </div>
+    <p class="w3-center">{{ album.0.description }}</p><br><hr><br>
+        <!-- songs -->
+        {% for song in album.1 %}
+            {% if forloop.counter0|divisibleby:4 %}
+                <div class="w3-row-padding w3-center">
+            {% endif %}
 
-        <div class="w3-col m3">
-            <img src="https://i1.sndcdn.com/avatars-rv0XiHjzKrmt5yud-ZBA4pg-t500x500.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Coffee beans">
-        </div>
+            <div class="w3-col m3 container-album w3-hover-opacity" id="song_container" onmouseover="onHover(this)" onmouseleave="onMouseLeave(this)">
+                <div class="center-album"><h4 id="song_name" class="w3-wide" style="visibility: visible; position: absolute; margin-left:auto;
+margin-right:auto; ">{{ song.name }}</h4><h4 id="song_play" style="visibility: hidden; position: absolute; margin-left:auto;
+margin-right:auto;">▶</h4></div>
+                <img src="media/{{ song.cover_image }}" style="width:100%" onclick="onClick(this)" alt="{{ song.name }}">
+            </div>
 
-        <div class="w3-col m3">
-            <img src="https://i1.sndcdn.com/avatars-rv0XiHjzKrmt5yud-ZBA4pg-t500x500.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Bear closeup">
-        </div>
 
-        <div class="w3-col m3">
-            <img src="https://i1.sndcdn.com/avatars-rv0XiHjzKrmt5yud-ZBA4pg-t500x500.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Quiet ocean">
-        </div>
-    </div>
+            {% if forloop.counter|divisibleby:4 %}
+                </div>
+            {% endif %}
+        {% endfor %}
 
-    <div class="w3-row-padding w3-center w3-section">
-        <div class="w3-col m3">
-            <img src="https://i1.sndcdn.com/avatars-rv0XiHjzKrmt5yud-ZBA4pg-t500x500.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist">
-        </div>
-
-        <div class="w3-col m3">
-            <img src="https://i1.sndcdn.com/avatars-rv0XiHjzKrmt5yud-ZBA4pg-t500x500.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="My beloved typewriter">
-        </div>
-
-        <div class="w3-col m3">
-            <img src="https://i1.sndcdn.com/avatars-rv0XiHjzKrmt5yud-ZBA4pg-t500x500.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Empty ghost train">
-        </div>
-
-        <div class="w3-col m3">
-            <img src="https://i1.sndcdn.com/avatars-rv0XiHjzKrmt5yud-ZBA4pg-t500x500.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sailing">
-        </div>
-        <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
-    </div>
+        {% if album.1|length < 4 %}
+            </div>
+        {%  endif %}
+    {% endfor %}
 </div>
+<br><br><br>
 
 <!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-    <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+<div id="modal01" class="w3-modal w3-black">
+    <span class="w3-button w3-xxxlarge w3-black w3-display-topright" title="Close Modal Image" onclick="hideModal()"><i class="fa fa-remove"></i></span>
     <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
         <img id="img01" class="w3-image">
-        <p id="caption" class="w3-opacity w3-large"></p>
+        <div class="w3-container">
+            <template>
+            <div id="audio-player-container">
+                <audio src="" preload="metadata" loop></audio>
+{#                <p class="audio_p">audio player ish</p>#}
+                <button id="play-icon"></button>
+                <span id="current-time" class="time">0:00</span>
+                <input type="range" id="seek-slider" max="100" value="0">
+                <span id="duration" class="time">0:00</span>
+                <output id="volume-output">100</output>
+                <input type="range" id="volume-slider" max="100" value="100">
+                <button id="mute-icon"></button>
+            </div>
+
+
+            <audio-player data-src="https://assets.codepen.io/4358584/Anitek_-_Komorebi.mp3"></audio-player>
+            </template>
+            <h1 id="caption" class="w3-text-white  w3-xxxlarge"></h1>
+        </div>
     </div>
 </div>
+
 
 <!-- Third Parallax Image with Portfolio Text -->
 <div class="bgimg-3 w3-display-container w3-opacity-min">
@@ -198,6 +207,13 @@
     </div>
 </div>
 
+<div style="visibility: hidden">
+    <span id="subtitle_length">{{ subtitles_length }}</span>
+    {% for subtitle_object in subtitles %}
+        <span id="subtitle_{{forloop.counter0}}">{{subtitle_object.text}}</span>
+    {% endfor %}
+</div>
+
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
     <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
@@ -209,15 +225,7 @@
         <i class="fa fa-twitter w3-hover-opacity"></i>
         <i class="fa fa-linkedin w3-hover-opacity"></i>
     </div>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
-
-<div style="visibility: hidden">
-    <span id="subtitle_length">{{ subtitles_length }}</span>
-    {% for subtitle_object in subtitles %}
-        <span id="subtitle_{{forloop.counter0}}">{{subtitle_object.text}}</span>
-    {% endfor %}
-</div>
 
 <script>
     const subtitle_div = document.getElementById("subtitle");
@@ -250,6 +258,22 @@
 
     }, 8000 )
 
+    function onHover(element){
+        element.getElementsByClassName("center-album")[0].firstChild.style.visibility = "hidden";
+        element.getElementsByClassName("center-album")[0].lastChild.style.visibility = "visible";
+    }
+
+    function onMouseLeave(element){
+        element.getElementsByClassName("center-album")[0].firstChild.style.visibility = "visible";
+        element.getElementsByClassName("center-album")[0].lastChild.style.visibility = "hidden";
+    }
+
+    function hideModal(){
+        const modal = document.getElementById("modal01");
+        modal.style.display = 'none';
+    }
+
+
     // Modal Image Gallery
     function onClick(element) {
         document.getElementById("img01").src = element.src;
@@ -278,6 +302,224 @@
             x.className = x.className.replace(" w3-show", "");
         }
     }
+</script>
+<script type="module">
+    import lottieWeb from 'https://cdn.skypack.dev/lottie-web';
+
+    class AudioPlayer extends HTMLElement {
+        constructor() {
+            super();
+            const template = document.querySelector("template");
+            const templateContent = template.content;
+            const shadow = this.attachShadow({mode: 'open'});
+            shadow.appendChild(templateContent.cloneNode(true));
+        }
+
+        connectedCallback() {
+            everything(this);
+        }
+    }
+
+    const everything = function(element) {
+        const shadow = element.shadowRoot;
+
+        const audioPlayerContainer = shadow.getElementById('audio-player-container');
+        const playIconContainer = shadow.getElementById('play-icon');
+        const seekSlider = shadow.getElementById('seek-slider');
+        const volumeSlider = shadow.getElementById('volume-slider');
+        const muteIconContainer = shadow.getElementById('mute-icon');
+        const audio = shadow.querySelector('audio');
+        const durationContainer = shadow.getElementById('duration');
+        const currentTimeContainer = shadow.getElementById('current-time');
+        const outputContainer = shadow.getElementById('volume-output');
+        let playState = 'play';
+        let muteState = 'unmute';
+        let raf = null;
+
+        audio.src = element.getAttribute('data-src');
+
+        const playAnimation = lottieWeb.loadAnimation({
+            container: playIconContainer,
+            path: 'https://maxst.icons8.com/vue-static/landings/animated-icons/icons/pause/pause.json',
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            name: "Play Animation",
+        });
+
+        const muteAnimation = lottieWeb.loadAnimation({
+            container: muteIconContainer,
+            path: 'https://maxst.icons8.com/vue-static/landings/animated-icons/icons/mute/mute.json',
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            name: "Mute Animation",
+        });
+
+        playAnimation.goToAndStop(14, true);
+
+        const whilePlaying = () => {
+            seekSlider.value = Math.floor(audio.currentTime);
+            currentTimeContainer.textContent = calculateTime(seekSlider.value);
+            audioPlayerContainer.style.setProperty('--seek-before-width', `${seekSlider.value / seekSlider.max * 100}%`);
+            raf = requestAnimationFrame(whilePlaying);
+        }
+
+        const showRangeProgress = (rangeInput) => {
+            if(rangeInput === seekSlider) audioPlayerContainer.style.setProperty('--seek-before-width', rangeInput.value / rangeInput.max * 100 + '%');
+            else audioPlayerContainer.style.setProperty('--volume-before-width', rangeInput.value / rangeInput.max * 100 + '%');
+        }
+
+        const calculateTime = (secs) => {
+            const minutes = Math.floor(secs / 60);
+            const seconds = Math.floor(secs % 60);
+            const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+            return `${minutes}:${returnedSeconds}`;
+        }
+
+        const displayDuration = () => {
+            durationContainer.textContent = calculateTime(audio.duration);
+        }
+
+        const setSliderMax = () => {
+            seekSlider.max = Math.floor(audio.duration);
+        }
+
+        const displayBufferedAmount = () => {
+            const bufferedAmount = Math.floor(audio.buffered.end(audio.buffered.length - 1));
+            audioPlayerContainer.style.setProperty('--buffered-width', `${(bufferedAmount / seekSlider.max) * 100}%`);
+        }
+
+        if (audio.readyState > 0) {
+            displayDuration();
+            setSliderMax();
+            displayBufferedAmount();
+        } else {
+            audio.addEventListener('loadedmetadata', () => {
+                displayDuration();
+                setSliderMax();
+                displayBufferedAmount();
+            });
+        }
+
+        playIconContainer.addEventListener('click', () => {
+            if(playState === 'play') {
+                audio.play();
+                playAnimation.playSegments([14, 27], true);
+                requestAnimationFrame(whilePlaying);
+                playState = 'pause';
+            } else {
+                audio.pause();
+                playAnimation.playSegments([0, 14], true);
+                cancelAnimationFrame(raf);
+                playState = 'play';
+            }
+        });
+
+        muteIconContainer.addEventListener('click', () => {
+            if(muteState === 'unmute') {
+                muteAnimation.playSegments([0, 15], true);
+                audio.muted = true;
+                muteState = 'mute';
+            } else {
+                muteAnimation.playSegments([15, 25], true);
+                audio.muted = false;
+                muteState = 'unmute';
+            }
+        });
+
+        audio.addEventListener('progress', displayBufferedAmount);
+
+        seekSlider.addEventListener('input', (e) => {
+            showRangeProgress(e.target);
+            currentTimeContainer.textContent = calculateTime(seekSlider.value);
+            if(!audio.paused) {
+                cancelAnimationFrame(raf);
+            }
+        });
+
+        seekSlider.addEventListener('change', () => {
+            audio.currentTime = seekSlider.value;
+            if(!audio.paused) {
+                requestAnimationFrame(whilePlaying);
+            }
+        });
+
+        volumeSlider.addEventListener('input', (e) => {
+            const value = e.target.value;
+            showRangeProgress(e.target);
+            outputContainer.textContent = value;
+            audio.volume = value / 100;
+        });
+
+        if('mediaSession' in navigator) {
+            navigator.mediaSession.metadata = new MediaMetadata({
+                title: 'Komorebi',
+                artist: 'Anitek',
+                album: 'MainStay',
+                artwork: [
+                    { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '96x96', type: 'image/png' },
+                    { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '128x128', type: 'image/png' },
+                    { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '192x192', type: 'image/png' },
+                    { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '256x256', type: 'image/png' },
+                    { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '384x384', type: 'image/png' },
+                    { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '512x512', type: 'image/png' }
+                ]
+            });
+            navigator.mediaSession.setActionHandler('play', () => {
+                if(playState === 'play') {
+                    audio.play();
+                    playAnimation.playSegments([14, 27], true);
+                    requestAnimationFrame(whilePlaying);
+                    playState = 'pause';
+                } else {
+                    audio.pause();
+                    playAnimation.playSegments([0, 14], true);
+                    cancelAnimationFrame(raf);
+                    playState = 'play';
+                }
+            });
+            navigator.mediaSession.setActionHandler('pause', () => {
+                if(playState === 'play') {
+                    audio.play();
+                    playAnimation.playSegments([14, 27], true);
+                    requestAnimationFrame(whilePlaying);
+                    playState = 'pause';
+                } else {
+                    audio.pause();
+                    playAnimation.playSegments([0, 14], true);
+                    cancelAnimationFrame(raf);
+                    playState = 'play';
+                }
+            });
+            navigator.mediaSession.setActionHandler('seekbackward', (details) => {
+                audio.currentTime = audio.currentTime - (details.seekOffset || 10);
+            });
+            navigator.mediaSession.setActionHandler('seekforward', (details) => {
+                audio.currentTime = audio.currentTime + (details.seekOffset || 10);
+            });
+            navigator.mediaSession.setActionHandler('seekto', (details) => {
+                if (details.fastSeek && 'fastSeek' in audio) {
+                    audio.fastSeek(details.seekTime);
+                    return;
+                }
+                audio.currentTime = details.seekTime;
+            });
+            navigator.mediaSession.setActionHandler('stop', () => {
+                audio.currentTime = 0;
+                seekSlider.value = 0;
+                audioPlayerContainer.style.setProperty('--seek-before-width', '0%');
+                currentTimeContainer.textContent = '0:00';
+                if(playState === 'pause') {
+                    playAnimation.playSegments([0, 14], true);
+                    cancelAnimationFrame(raf);
+                    playState = 'play';
+                }
+            });
+        }
+    }
+
+    customElements.define('audio-player', AudioPlayer);
 </script>
 
 </body>

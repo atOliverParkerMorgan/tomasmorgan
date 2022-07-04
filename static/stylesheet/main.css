@@ -1,6 +1,18 @@
 .container{
     display: inline-block;
+    padding: 5px;
 }
+.container-album {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.center-album {
+    position: absolute;
+    padding-left: 15px;
+}
+
 .typed-out{
     overflow: hidden;
     border-right: .15em solid orange;
@@ -19,5 +31,5 @@
 
 @keyframes typing {
     from { width: 0 }
-    to { width: 100% }
+    to { width: 105% }
 }

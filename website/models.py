@@ -11,7 +11,8 @@ class BackgroundImages(models.Model):
 
 
 class BackgroundImage(models.Model):
-    background_images = models.ForeignKey(BackgroundImages, null=True, related_name='background_image', on_delete=models.CASCADE)
+    background_images = models.ForeignKey(BackgroundImages, null=True, related_name='background_image',
+                                          on_delete=models.CASCADE)
     background_image = models.ImageField(
         upload_to='cover_images',
         height_field=None,
@@ -42,7 +43,19 @@ class Subtitle(models.Model):
     text = models.CharField(max_length=50, null=True, blank=True)
 
 
-class Songs(models.Model):
+class Album(models.Model):
+    album_name = models.CharField(max_length=50, null=True, blank=True)
+    description = models.CharField(max_length=200, null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = 'Albums'
+
+    def __str__(self):
+        return self.album_name
+
+
+class Song(models.Model):
+    name_of_song_album = models.ForeignKey(Album, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=20, null=True, blank=True)
 
     audio = models.FileField(upload_to='audio')
@@ -54,16 +67,11 @@ class Songs(models.Model):
         default="/defaultbook.jpg"
     )
 
-    def save(self, *args, **kwargs):
-        if not self.pk and AboutMe.objects.exists():
-            raise ValidationError('there can be only one Songs object')
-        return super(Songs, self).save(*args, **kwargs)
-
     class Meta:
         verbose_name_plural = 'Songs'
 
     def __str__(self):
-        return "Songs"
+        return self.name
 
 
 class Contact(models.Model):
@@ -75,10 +83,10 @@ class Contact(models.Model):
     instagram_link = models.CharField(max_length=500, null=True, blank=True)
     soundcloud_link = models.CharField(max_length=500, null=True, blank=True)
 
-    # def save(self, *args, **kwargs):
-    #     if not self.pk and AboutMe.objects.exists():
-    #         raise ValidationError('there can be only one Contact object')
-    #     return super(Contact, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        if not self.pk and AboutMe.objects.exists():
+            raise ValidationError('there can be only one Contact object')
+        return super(Contact, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = 'Contact'

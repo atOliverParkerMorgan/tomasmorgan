@@ -9,10 +9,19 @@ def index(request):
     template = loader.get_template('./index.html')
 
     about_me = AboutMe.objects.all()[0]
-    # songs = Songs.objects.all()[0]
     contact = Contact.objects.all()[0]
 
     background_images = BackgroundImages.objects.all()[0]
+
+    albums_array = []
+    for album in Album.objects.all():
+        songs = []
+        for song in Song.objects.all():
+            if str(song.name_of_song_album) == str(album.album_name):
+                print("current_song: " + song.name)
+                print("album_name: " + str(song.name_of_song_album))
+                songs.append(song)
+        albums_array.append((album, songs))
 
     subtitles_array = []
     for text in about_me.text.all():
@@ -27,6 +36,7 @@ def index(request):
         'subtitles': subtitles_array,
         'subtitles_length': len(subtitles_array),
         'description': str(about_me.description),
+        'albums': albums_array,
         'contact': contact,
         'background_images': background_images_array,
     }
