@@ -56,3 +56,5 @@ admin.site.register(AboutMe, AboutMeAdmin)
 admin.site.register(Album, AlbumAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(BackgroundImages, BackgroundImagesAdmin)
+admin.site.register(GalleryImage)
+

@@ -54,6 +54,16 @@ class Album(models.Model):
         return self.album_name
 
 
+class GalleryImage(models.Model):
+    gallery_image = models.ImageField(
+        upload_to='cover_images',
+        height_field=None,
+        width_field=None,
+        max_length=None,
+        default="/defaultbook.jpg"
+    )
+
+
 class Song(models.Model):
     name_of_song_album = models.ForeignKey(Album, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=20, null=True, blank=True)

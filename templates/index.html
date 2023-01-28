@@ -169,6 +169,25 @@ margin-right:auto;">▶</h4></div>
 </div>
 
 
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+    <div class="w3-display-middle">
+        <span class="w3-xxlarge w3-text-white w3-wide">GALLERY</span>
+    </div>
+</div>
+
+<div class="w3-content w3-container w3-padding-64" id="gallery">
+    <h3 class="w3-center">SOME IMAGES</h3>
+    {% for image in gallery_images %}
+
+        <div class="gallery">
+          <a target="_blank" href="img_5terre.jpg">
+            <img src="{{ image.gallery_image.url }}" alt="Cinque Terre" width="800" height="800">
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div>
+
+    {% endfor %}
+</div>
 <!-- Third Parallax Image with Portfolio Text -->
 <div class="bgimg-3 w3-display-container w3-opacity-min">
     <div class="w3-display-middle">
@@ -214,6 +233,9 @@ margin-right:auto;">▶</h4></div>
         <span id="subtitle_{{forloop.counter0}}">{{subtitle_object.text}}</span>
     {% endfor %}
 </div>
+
+
+
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">

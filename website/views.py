@@ -39,5 +39,6 @@ def index(request):
         'albums': albums_array,
         'contact': contact,
         'background_images': background_images_array,
+        'all_gallery_images': GalleryImage.objects.all()
     }
     return HttpResponse(template.render(context, request))
