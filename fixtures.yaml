@@ -1,0 +1,710 @@
+- model: admin.logentry
+  pk: 1
+  fields:
+    action_time: 2022-07-03 17:06:44.279210+00:00
+    user: 1
+    content_type: 7
+    object_id: '1'
+    object_repr: AboutMe object (1)
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 2
+  fields:
+    action_time: 2022-07-03 17:11:40.471421+00:00
+    user: 1
+    content_type: 7
+    object_id: '1'
+    object_repr: AboutMe object (1)
+    action_flag: 2
+    change_message: '[{"changed": {"fields": ["Title"]}}]'
+- model: admin.logentry
+  pk: 3
+  fields:
+    action_time: 2022-07-03 17:13:31.573336+00:00
+    user: 1
+    content_type: 7
+    object_id: '1'
+    object_repr: AboutMe object (1)
+    action_flag: 2
+    change_message: '[{"changed": {"fields": ["Description"]}}]'
+- model: admin.logentry
+  pk: 4
+  fields:
+    action_time: 2022-07-03 19:58:08.738306+00:00
+    user: 1
+    content_type: 9
+    object_id: '1'
+    object_repr: Contact
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 5
+  fields:
+    action_time: 2022-07-03 20:26:02.753654+00:00
+    user: 1
+    content_type: 8
+    object_id: '1'
+    object_repr: Background Images
+    action_flag: 1
+    change_message: '[{"added": {}}, {"added": {"name": "background image", "object":
+      "BackgroundImage object (1)"}}, {"added": {"name": "background image", "object":
+      "BackgroundImage object (2)"}}, {"added": {"name": "background image", "object":
+      "BackgroundImage object (3)"}}]'
+- model: admin.logentry
+  pk: 6
+  fields:
+    action_time: 2022-07-03 21:17:05.842139+00:00
+    user: 1
+    content_type: 8
+    object_id: '1'
+    object_repr: Background Images
+    action_flag: 2
+    change_message: '[{"changed": {"name": "background image", "object": "BackgroundImage
+      object (2)", "fields": ["Background image"]}}, {"changed": {"name": "background
+      image", "object": "BackgroundImage object (3)", "fields": ["Background image"]}}]'
+- model: admin.logentry
+  pk: 7
+  fields:
+    action_time: 2022-07-03 21:40:58.207364+00:00
+    user: 1
+    content_type: 7
+    object_id: '1'
+    object_repr: About me
+    action_flag: 2
+    change_message: '[{"added": {"name": "subtitle", "object": "Subtitle object (1)"}},
+      {"added": {"name": "subtitle", "object": "Subtitle object (2)"}}, {"added":
+      {"name": "subtitle", "object": "Subtitle object (3)"}}]'
+- model: admin.logentry
+  pk: 8
+  fields:
+    action_time: 2022-07-03 22:10:11.412103+00:00
+    user: 1
+    content_type: 7
+    object_id: '1'
+    object_repr: About me
+    action_flag: 2
+    change_message: '[{"added": {"name": "subtitle", "object": "Subtitle object (4)"}},
+      {"changed": {"name": "subtitle", "object": "Subtitle object (3)", "fields":
+      ["Text"]}}]'
+- model: admin.logentry
+  pk: 9
+  fields:
+    action_time: 2022-07-04 09:13:25.021547+00:00
+    user: 1
+    content_type: 7
+    object_id: '1'
+    object_repr: About me
+    action_flag: 2
+    change_message: '[{"changed": {"name": "subtitle", "object": "Subtitle object
+      (3)", "fields": ["Text"]}}]'
+- model: admin.logentry
+  pk: 10
+  fields:
+    action_time: 2022-07-04 09:36:23.107863+00:00
+    user: 1
+    content_type: 10
+    object_id: '1'
+    object_repr: Songs
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 11
+  fields:
+    action_time: 2022-07-04 10:09:52.893699+00:00
+    user: 1
+    content_type: 13
+    object_id: '1'
+    object_repr: Album object (1)
+    action_flag: 1
+    change_message: '[{"added": {}}, {"added": {"name": "song", "object": "Smile"}},
+      {"added": {"name": "song", "object": "Devided"}}, {"added": {"name": "song",
+      "object": "Vanitas"}}]'
+- model: admin.logentry
+  pk: 12
+  fields:
+    action_time: 2022-07-04 10:19:37.212957+00:00
+    user: 1
+    content_type: 13
+    object_id: '1'
+    object_repr: CAIN PROBLEM
+    action_flag: 2
+    change_message: '[{"changed": {"fields": ["Descriptions"]}}]'
+- model: admin.logentry
+  pk: 13
+  fields:
+    action_time: 2022-07-04 20:46:17.013702+00:00
+    user: 1
+    content_type: 13
+    object_id: '1'
+    object_repr: CAIN PROBLEM
+    action_flag: 2
+    change_message: '[{"changed": {"name": "song", "object": "Smile", "fields": ["Audio"]}},
+      {"changed": {"name": "song", "object": "Devided", "fields": ["Audio"]}}, {"changed":
+      {"name": "song", "object": "Vanitas", "fields": ["Audio"]}}]'
+- model: auth.permission
+  pk: 1
+  fields:
+    name: Can add log entry
+    content_type: 1
+    codename: add_logentry
+- model: auth.permission
+  pk: 2
+  fields:
+    name: Can change log entry
+    content_type: 1
+    codename: change_logentry
+- model: auth.permission
+  pk: 3
+  fields:
+    name: Can delete log entry
+    content_type: 1
+    codename: delete_logentry
+- model: auth.permission
+  pk: 4
+  fields:
+    name: Can view log entry
+    content_type: 1
+    codename: view_logentry
+- model: auth.permission
+  pk: 5
+  fields:
+    name: Can add permission
+    content_type: 2
+    codename: add_permission
+- model: auth.permission
+  pk: 6
+  fields:
+    name: Can change permission
+    content_type: 2
+    codename: change_permission
+- model: auth.permission
+  pk: 7
+  fields:
+    name: Can delete permission
+    content_type: 2
+    codename: delete_permission
+- model: auth.permission
+  pk: 8
+  fields:
+    name: Can view permission
+    content_type: 2
+    codename: view_permission
+- model: auth.permission
+  pk: 9
+  fields:
+    name: Can add group
+    content_type: 3
+    codename: add_group
+- model: auth.permission
+  pk: 10
+  fields:
+    name: Can change group
+    content_type: 3
+    codename: change_group
+- model: auth.permission
+  pk: 11
+  fields:
+    name: Can delete group
+    content_type: 3
+    codename: delete_group
+- model: auth.permission
+  pk: 12
+  fields:
+    name: Can view group
+    content_type: 3
+    codename: view_group
+- model: auth.permission
+  pk: 13
+  fields:
+    name: Can add user
+    content_type: 4
+    codename: add_user
+- model: auth.permission
+  pk: 14
+  fields:
+    name: Can change user
+    content_type: 4
+    codename: change_user
+- model: auth.permission
+  pk: 15
+  fields:
+    name: Can delete user
+    content_type: 4
+    codename: delete_user
+- model: auth.permission
+  pk: 16
+  fields:
+    name: Can view user
+    content_type: 4
+    codename: view_user
+- model: auth.permission
+  pk: 17
+  fields:
+    name: Can add content type
+    content_type: 5
+    codename: add_contenttype
+- model: auth.permission
+  pk: 18
+  fields:
+    name: Can change content type
+    content_type: 5
+    codename: change_contenttype
+- model: auth.permission
+  pk: 19
+  fields:
+    name: Can delete content type
+    content_type: 5
+    codename: delete_contenttype
+- model: auth.permission
+  pk: 20
+  fields:
+    name: Can view content type
+    content_type: 5
+    codename: view_contenttype
+- model: auth.permission
+  pk: 21
+  fields:
+    name: Can add session
+    content_type: 6
+    codename: add_session
+- model: auth.permission
+  pk: 22
+  fields:
+    name: Can change session
+    content_type: 6
+    codename: change_session
+- model: auth.permission
+  pk: 23
+  fields:
+    name: Can delete session
+    content_type: 6
+    codename: delete_session
+- model: auth.permission
+  pk: 24
+  fields:
+    name: Can view session
+    content_type: 6
+    codename: view_session
+- model: auth.permission
+  pk: 25
+  fields:
+    name: Can add about me
+    content_type: 7
+    codename: add_aboutme
+- model: auth.permission
+  pk: 26
+  fields:
+    name: Can change about me
+    content_type: 7
+    codename: change_aboutme
+- model: auth.permission
+  pk: 27
+  fields:
+    name: Can delete about me
+    content_type: 7
+    codename: delete_aboutme
+- model: auth.permission
+  pk: 28
+  fields:
+    name: Can view about me
+    content_type: 7
+    codename: view_aboutme
+- model: auth.permission
+  pk: 29
+  fields:
+    name: Can add background images
+    content_type: 8
+    codename: add_backgroundimages
+- model: auth.permission
+  pk: 30
+  fields:
+    name: Can change background images
+    content_type: 8
+    codename: change_backgroundimages
+- model: auth.permission
+  pk: 31
+  fields:
+    name: Can delete background images
+    content_type: 8
+    codename: delete_backgroundimages
+- model: auth.permission
+  pk: 32
+  fields:
+    name: Can view background images
+    content_type: 8
+    codename: view_backgroundimages
+- model: auth.permission
+  pk: 33
+  fields:
+    name: Can add contact
+    content_type: 9
+    codename: add_contact
+- model: auth.permission
+  pk: 34
+  fields:
+    name: Can change contact
+    content_type: 9
+    codename: change_contact
+- model: auth.permission
+  pk: 35
+  fields:
+    name: Can delete contact
+    content_type: 9
+    codename: delete_contact
+- model: auth.permission
+  pk: 36
+  fields:
+    name: Can view contact
+    content_type: 9
+    codename: view_contact
+- model: auth.permission
+  pk: 37
+  fields:
+    name: Can add songs
+    content_type: 10
+    codename: add_songs
+- model: auth.permission
+  pk: 38
+  fields:
+    name: Can change songs
+    content_type: 10
+    codename: change_songs
+- model: auth.permission
+  pk: 39
+  fields:
+    name: Can delete songs
+    content_type: 10
+    codename: delete_songs
+- model: auth.permission
+  pk: 40
+  fields:
+    name: Can view songs
+    content_type: 10
+    codename: view_songs
+- model: auth.permission
+  pk: 41
+  fields:
+    name: Can add subtitle
+    content_type: 11
+    codename: add_subtitle
+- model: auth.permission
+  pk: 42
+  fields:
+    name: Can change subtitle
+    content_type: 11
+    codename: change_subtitle
+- model: auth.permission
+  pk: 43
+  fields:
+    name: Can delete subtitle
+    content_type: 11
+    codename: delete_subtitle
+- model: auth.permission
+  pk: 44
+  fields:
+    name: Can view subtitle
+    content_type: 11
+    codename: view_subtitle
+- model: auth.permission
+  pk: 45
+  fields:
+    name: Can add background image
+    content_type: 12
+    codename: add_backgroundimage
+- model: auth.permission
+  pk: 46
+  fields:
+    name: Can change background image
+    content_type: 12
+    codename: change_backgroundimage
+- model: auth.permission
+  pk: 47
+  fields:
+    name: Can delete background image
+    content_type: 12
+    codename: delete_backgroundimage
+- model: auth.permission
+  pk: 48
+  fields:
+    name: Can view background image
+    content_type: 12
+    codename: view_backgroundimage
+- model: auth.permission
+  pk: 49
+  fields:
+    name: Can add album
+    content_type: 13
+    codename: add_album
+- model: auth.permission
+  pk: 50
+  fields:
+    name: Can change album
+    content_type: 13
+    codename: change_album
+- model: auth.permission
+  pk: 51
+  fields:
+    name: Can delete album
+    content_type: 13
+    codename: delete_album
+- model: auth.permission
+  pk: 52
+  fields:
+    name: Can view album
+    content_type: 13
+    codename: view_album
+- model: auth.permission
+  pk: 53
+  fields:
+    name: Can add song
+    content_type: 14
+    codename: add_song
+- model: auth.permission
+  pk: 54
+  fields:
+    name: Can change song
+    content_type: 14
+    codename: change_song
+- model: auth.permission
+  pk: 55
+  fields:
+    name: Can delete song
+    content_type: 14
+    codename: delete_song
+- model: auth.permission
+  pk: 56
+  fields:
+    name: Can view song
+    content_type: 14
+    codename: view_song
+- model: auth.permission
+  pk: 57
+  fields:
+    name: Can add gallery image
+    content_type: 15
+    codename: add_galleryimage
+- model: auth.permission
+  pk: 58
+  fields:
+    name: Can change gallery image
+    content_type: 15
+    codename: change_galleryimage
+- model: auth.permission
+  pk: 59
+  fields:
+    name: Can delete gallery image
+    content_type: 15
+    codename: delete_galleryimage
+- model: auth.permission
+  pk: 60
+  fields:
+    name: Can view gallery image
+    content_type: 15
+    codename: view_galleryimage
+- model: auth.user
+  pk: 1
+  fields:
+    password: pbkdf2_sha256$390000$fjqJ2iE9F9B89Uim54e9MZ$f/j/w9AGwwy6Llz0IKvIKRl4wHuxBQlxBBaHZ16OPQo=
+    last_login: 2023-01-29 19:59:19.679336+00:00
+    is_superuser: true
+    username: tomasmorgan
+    first_name: ''
+    last_name: ''
+    email: tomasmorgan@gmail.com
+    is_staff: true
+    is_active: true
+    date_joined: 2022-07-03 14:01:04.819670+00:00
+    groups: []
+    user_permissions: []
+- model: contenttypes.contenttype
+  pk: 1
+  fields:
+    app_label: admin
+    model: logentry
+- model: contenttypes.contenttype
+  pk: 2
+  fields:
+    app_label: auth
+    model: permission
+- model: contenttypes.contenttype
+  pk: 3
+  fields:
+    app_label: auth
+    model: group
+- model: contenttypes.contenttype
+  pk: 4
+  fields:
+    app_label: auth
+    model: user
+- model: contenttypes.contenttype
+  pk: 5
+  fields:
+    app_label: contenttypes
+    model: contenttype
+- model: contenttypes.contenttype
+  pk: 6
+  fields:
+    app_label: sessions
+    model: session
+- model: contenttypes.contenttype
+  pk: 7
+  fields:
+    app_label: website
+    model: aboutme
+- model: contenttypes.contenttype
+  pk: 8
+  fields:
+    app_label: website
+    model: backgroundimages
+- model: contenttypes.contenttype
+  pk: 9
+  fields:
+    app_label: website
+    model: contact
+- model: contenttypes.contenttype
+  pk: 10
+  fields:
+    app_label: website
+    model: songs
+- model: contenttypes.contenttype
+  pk: 11
+  fields:
+    app_label: website
+    model: subtitle
+- model: contenttypes.contenttype
+  pk: 12
+  fields:
+    app_label: website
+    model: backgroundimage
+- model: contenttypes.contenttype
+  pk: 13
+  fields:
+    app_label: website
+    model: album
+- model: contenttypes.contenttype
+  pk: 14
+  fields:
+    app_label: website
+    model: song
+- model: contenttypes.contenttype
+  pk: 15
+  fields:
+    app_label: website
+    model: galleryimage
+- model: sessions.session
+  pk: 8jb5csfmpxl3j8qkwv914abcevnkfe48
+  fields:
+    session_data: .eJxVjMsOwiAQRf-FtSG8BhiX7v0GAgyVqoGktCvjv2uTLnR7zzn3xULc1hq2UZYwEzszyU6_W4r5UdoO6B7brfPc27rMie8KP-jg107leTncv4MaR_3WQmtXELKlaDSScUgJpTfK2gjOFuMRAcAokpOwSDn5nIr0YGBKAhR7fwC-gDcD:1pMDg1:4GU8QeEleFi3NVhV9ZlcDqcgUWHeeWFSXfhC6QVa4UU
+    expire_date: 2023-02-12 19:49:21.400267+00:00
+- model: sessions.session
+  pk: b7y0loz9ppoox3k4zgnp0wtdjecpgyzq
+  fields:
+    session_data: .eJxVjDEOwyAQBP9CHSE4wOCU6f0GdJy52EkEkrGrKH-PLblImi12ZvctIm7rFLeWlziP4iq0uPx2CemZywHGB5Z7lVTLusxJHoo8aZNDHfPrdrp_BxO2aV8H6ByD0hwILRIlo1Lw7FRHvSG2AMRKcWJApaH34NjuAcb3aDrvxOcL32k3Ng:1o80Mr:x81V07ij0SPqYghfHINN1MAC8ICppGvJ422faZPnLl4
+    expire_date: 2022-07-17 14:14:33.268662+00:00
+- model: sessions.session
+  pk: i4e9n9z14xuerabsmlanazmjr70ssjip
+  fields:
+    session_data: .eJxVjMsOwiAQRf-FtSG8BhiX7v0GAgyVqoGktCvjv2uTLnR7zzn3xULc1hq2UZYwEzszyU6_W4r5UdoO6B7brfPc27rMie8KP-jg107leTncv4MaR_3WQmtXELKlaDSScUgJpTfK2gjOFuMRAcAokpOwSDn5nIr0YGBKAhR7fwC-gDcD:1pMDpf:QUTIa7_n7IWMBNLcRPnz0LGw8nBtlWcJ0oA23-BX2VM
+    expire_date: 2023-02-12 19:59:19.681764+00:00
+- model: website.backgroundimages
+  pk: 1
+  fields: {}
+- model: website.backgroundimage
+  pk: 1
+  fields:
+    background_images: 1
+    background_image: cover_images/background2_1ehfyWq.jpg
+- model: website.backgroundimage
+  pk: 2
+  fields:
+    background_images: 1
+    background_image: cover_images/background3_zw4obRl.jpg
+- model: website.backgroundimage
+  pk: 3
+  fields:
+    background_images: 1
+    background_image: cover_images/background1_H8gR9Wo.jpg
+- model: website.aboutme
+  pk: 1
+  fields:
+    title: TOMAS MORGAN
+    description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis pulvinar.
+      Etiam quis quam. Pellentesque pretium lectus id turpis. Phasellus rhoncus. Sed
+      elit dui, pellentesque a, faucibus vel, interdum nec, diam. Nullam sapien sem,
+      ornare ac, nonummy non, lobortis a enim. Cras elementum. Aliquam ornare wisi
+      eu metus. Nulla non arcu lacinia neque faucibus fringilla. Aliquam in lorem
+      sit amet leo accumsan lacinia. Nam quis nulla. In sem justo, commodo ut, suscipit
+      at, pharetra vitae, orci. Vivamus ac leo pretium faucibus.\r\n\r\nCurabitur
+      ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Phasellus et
+      lorem id felis nonummy placerat. Vestibulum erat nulla, ullamcorper nec, rutrum
+      non, nonummy ac, erat. Duis pulvinar. Sed convallis magna eu sem. Maecenas sollicitudin.
+      Integer tempor. Mauris tincidunt sem sed arcu. Etiam dui sem, fermentum vitae,
+      sagittis id, malesuada in, quam. Sed convallis magna eu sem. Nulla accumsan,
+      elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam
+      nulla vel leo. Curabitur sagittis hendrerit ante. Sed convallis magna eu sem.
+      Fusce nibh. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat
+      ante, in pharetra metus odio a lectus. Cras elementum. Class aptent taciti sociosqu
+      ad litora torquent per conubia nostra, per inceptos hymenaeos. Aliquam erat
+      volutpat."
+- model: website.subtitle
+  pk: 1
+  fields:
+    subtitles: 1
+    text: an upcoming Berlin musician.
+- model: website.subtitle
+  pk: 2
+  fields:
+    subtitles: 1
+    text: Guitarist. Pianist. Singer. Rapper.
+- model: website.subtitle
+  pk: 3
+  fields:
+    subtitles: 1
+    text: a part of the Kuma band.
+- model: website.subtitle
+  pk: 4
+  fields:
+    subtitles: 1
+    text: After Us Comes the Flood.
+- model: website.album
+  pk: 1
+  fields:
+    album_name: CAIN PROBLEM
+    description: My newest album lorem work ipsum tipsum.
+- model: website.song
+  pk: 1
+  fields:
+    name_of_song_album: 1
+    name: Smile
+    audio: audio/Rick_Roll_Sound_Effect.mp3
+    cover_image: cover_images/background1_lZMCH8D.jpg
+- model: website.song
+  pk: 2
+  fields:
+    name_of_song_album: 1
+    name: Devided
+    audio: audio/Rick_Roll_Sound_Effect_HHy9ZZV.mp3
+    cover_image: cover_images/background1_G87UfNu.jpg
+- model: website.song
+  pk: 3
+  fields:
+    name_of_song_album: 1
+    name: Vanitas
+    audio: audio/Rick_Roll_Sound_Effect_pG9mN5q.mp3
+    cover_image: cover_images/background1_ST5iJsl.jpg
+- model: website.contact
+  pk: 1
+  fields:
+    location: Berlin
+    phone_number: +420 776 269 633
+    email: tomas_morgan@gmail.com
+    facebook_link: https://www.facebook.com/tomas.morgan.927
+    instagram_link: https://www.instagram.com/tomas_s_morgan/
+    soundcloud_link: https://soundcloud.com/user-524027543
+
+- model: website.gallery
+  pk: 1
+  fields:
+    gallery_image: cover_images/background1_ST5iJsl.jpg
+    description: "Some description"

@@ -54,14 +54,15 @@ class Album(models.Model):
         return self.album_name
 
 
-class GalleryImage(models.Model):
+class Gallery(models.Model):
     gallery_image = models.ImageField(
         upload_to='cover_images',
         height_field=None,
         width_field=None,
         max_length=None,
-        default="/defaultbook.jpg"
+        default=None,
     )
+    description = models.CharField(default="", max_length=30)
 
 
 class Song(models.Model):

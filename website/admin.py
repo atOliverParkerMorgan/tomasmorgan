@@ -18,6 +18,8 @@ class AboutMeAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return False
 
+class GalleryImageAdmin(admin.ModelAdmin):
+    pass
 
 class SongsInline(admin.TabularInline):
     model = Song
@@ -56,5 +58,5 @@ admin.site.register(AboutMe, AboutMeAdmin)
 admin.site.register(Album, AlbumAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(BackgroundImages, BackgroundImagesAdmin)
-admin.site.register(GalleryImage)
+admin.site.register(Gallery, GalleryImageAdmin)
 

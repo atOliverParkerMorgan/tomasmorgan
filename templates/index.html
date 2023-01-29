@@ -40,9 +40,14 @@
             min-height: 400px;
         }
 
-        /* Third image (Contact) */
-        .bgimg-3 {
+         .bgimg-3 {
             background-image: url("media/{{ background_images.2.background_image }}");
+            min-height: 400px;
+        }
+
+        /* Third image (Contact) */
+        .bgimg-4 {
+            background-image: url("media/{{ background_images.3.background_image }}");
             min-height: 400px;
         }
 
@@ -177,11 +182,11 @@ margin-right:auto;">▶</h4></div>
 
 <div class="w3-content w3-container w3-padding-64" id="gallery">
     <h3 class="w3-center">SOME IMAGES</h3>
-    {% for image in gallery_images %}
+    {% for image in all_gallery_images %}
 
         <div class="gallery">
-          <a target="_blank" href="img_5terre.jpg">
-            <img src="{{ image.gallery_image.url }}" alt="Cinque Terre" width="800" height="800">
+          <a target="_blank" href="{{ image.gallery_image.url }}">
+            <img src="{{ image.gallery_image.url }}" alt="Cinque Terre">
           </a>
           <div class="desc">Add a description of the image here</div>
         </div>
@@ -189,7 +194,7 @@ margin-right:auto;">▶</h4></div>
     {% endfor %}
 </div>
 <!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container w3-opacity-min">
+<div class="bgimg-4 w3-display-container w3-opacity-min">
     <div class="w3-display-middle">
         <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
     </div>
